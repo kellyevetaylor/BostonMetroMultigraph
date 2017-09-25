@@ -4,7 +4,6 @@ import java.util.*;
 
 public class DijkstraAlgorithm {
 
-    private final List<Node> nodes;
     private final List<Edge> edges;
     private Set<Node> settledNodes;
     //Nodes not
@@ -15,7 +14,7 @@ public class DijkstraAlgorithm {
 
     public DijkstraAlgorithm(Graph graph) {
         // create a copy of the array so that we can operate on this array
-        this.nodes = new ArrayList<>(graph.getNodes());
+        List<Node> nodes = new ArrayList<>(graph.getNodes());
         this.edges = new ArrayList<>(graph.getEdges());
     }
 
