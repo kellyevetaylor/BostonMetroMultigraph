@@ -4,7 +4,7 @@ package BFS;
  * Bag, represents unordered collection. Imagine bag of marbles. Represented as single linkedlist.
  */
 public class Bag<E> {
-    Node<E> head; // beginning
+    public Node<E> head; // beginning
 
     /**
      * Initializes empty

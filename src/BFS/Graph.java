@@ -3,12 +3,13 @@ package BFS;
 /**
  * Graph class. Represented as adjancency list.
  */
-class Graph {
+public class Graph {
     int V; // total number of Nodes
-    Bag[] nodes; // all of the nodes in graph
+    public Bag[] nodes; // all of the nodes in graph
 
     /**
      * Creates graph of size V vertices.
+     *
      * @param V - number of nodes in the graph.
      */
     public Graph(int V) {
@@ -23,12 +24,27 @@ class Graph {
 
     /**
      * Adds new edge to adjecency list. Since graph is undirected we just add to both.
+     *
      * @param src
      * @param dest
      */
     public void addEdge(int src, int dest) {
-        nodes[src].add(dest);
-        nodes[dest].add(src);
+        if (dest != 0) { // ignore 0 since it's the end station.
+            nodes[src].add(dest);
+            nodes[dest].add(src);
+        }
     }
 
+    /**
+     * Adds new edge to adjecency list. Since graph is undirected we just add to both.
+     * Also casts to to Integer for graph id's.
+     *
+     * @param src
+     * @param dest
+     */
+    public void addEdge(String src, String dest) {
+        Integer srcInt = Integer.parseInt(src);
+        Integer destInt = Integer.parseInt(dest);
+        addEdge(srcInt, destInt);
+    }
 }
