@@ -6,7 +6,7 @@ public class DijkstraAlgorithm {
 
     private final List<Edge> edges;
     private Set<Node> settledNodes;
-    //Nodes not
+    //Nodes not visited yet.
     private Set<Node> unSettledNodes;
     private Map<Node, Node> predecessors;
     // Shortest distance from source to node
