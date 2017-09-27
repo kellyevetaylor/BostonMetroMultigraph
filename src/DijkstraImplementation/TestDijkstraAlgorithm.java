@@ -36,24 +36,10 @@ public class TestDijkstraAlgorithm {
         addLane("Edge_10", 9, 10);
         addLane("Edge_11", 1, 10);
 
-        addLane("Edge_12", 1, 0);
-        addLane("Edge_13", 2, 0);
-        addLane("Edge_14", 4, 0);
-        addLane("Edge_15", 6, 2);
-        addLane("Edge_16", 7, 2);
-        addLane("Edge_17", 7, 3);
-        addLane("Edge_18", 8, 5);
-        addLane("Edge_19", 9, 8);
-        addLane("Edge_20", 9, 7);
-        addLane("Edge_21", 9, 4);
-        addLane("Edge_22", 10, 9);
-        addLane("Edge_23", 10, 1);
-
-
         Graph graph = new Graph(nodes, edges);
         DijkstraAlgorithm dijkstra = new DijkstraAlgorithm(graph);
-        dijkstra.execute(nodes.get(10));
-        LinkedList<Node> path = dijkstra.getPath(nodes.get(4));
+        dijkstra.execute(nodes.get(4));
+        LinkedList<Node> path = dijkstra.getPath(nodes.get(9));
 
         assertNotNull(path);
         assertTrue(path.size() > 0);

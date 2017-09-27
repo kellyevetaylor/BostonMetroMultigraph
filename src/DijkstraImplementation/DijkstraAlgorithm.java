@@ -50,8 +50,12 @@ public class DijkstraAlgorithm {
 
     private int getDistance(Node node, Node target) {
         for (Edge edge : edges) {
-            if (edge.getSource().equals(node)
-                    && edge.getDestination().equals(target)) {
+            if (edge.getFirstNode().equals(node)
+                    && edge.getSecondNode().equals(target)) {
+                return edge.getWeight();
+            }
+            if (edge.getSecondNode().equals(node)
+                    && edge.getFirstNode().equals(target)) {
                 return edge.getWeight();
             }
         }
@@ -59,12 +63,17 @@ public class DijkstraAlgorithm {
     }
 
     private List<Node> getNeighbors(Node node) {
-        List<Node> neighbors = new ArrayList<Node>();
+        List<Node> neighbors = new ArrayList<>();
         for (Edge edge : edges) {
-            if (edge.getSource().equals(node)
-                    && !isSettled(edge.getDestination())) {
-                neighbors.add(edge.getDestination());
+            if (edge.getFirstNode().equals(node)
+                    && !isSettled(edge.getSecondNode())) {
+                neighbors.add(edge.getSecondNode());
             }
+            if (edge.getSecondNode().equals(node)
+                    && !isSettled(edge.getFirstNode())) {
+                neighbors.add(edge.getFirstNode());
+            }
+
         }
         return neighbors;
     }

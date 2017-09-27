@@ -12,11 +12,11 @@ public class Edge {
         this.lineColor = lineColor;
     }
 
-    public Node getSource() {
+    public Node getFirstNode() {
         return node1;
     }
 
-    public Node getDestination() {
+    public Node getSecondNode() {
         return node2;
     }
 
