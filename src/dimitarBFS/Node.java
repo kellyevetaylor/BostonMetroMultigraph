@@ -3,7 +3,7 @@ package dimitarBFS;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class Node implements NodeADT{
 	private String id;
     private String stationName;
 //    private boolean visited;

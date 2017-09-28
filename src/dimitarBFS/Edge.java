@@ -1,6 +1,6 @@
 package dimitarBFS;
 
-public class Edge {
+public class Edge implements EdgeADT{
 	
 
 	    private Node node1;
