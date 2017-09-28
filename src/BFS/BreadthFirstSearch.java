@@ -4,9 +4,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class BreadthFirstSearch {
-    public void BFS(Graph g, int startNode, int endNode) {
+    public String[] BFS(Graph g, int startNode, int endNode) {
         boolean found = false;
 
+        String[] paths = new String[g.V];
         boolean[] visited = new boolean[g.V];
         Queue<Integer> nextToCheck = new LinkedList<>();
 
@@ -26,7 +27,10 @@ class BreadthFirstSearch {
                     visited[(Integer)head.item] = true;
                 }
                 head = head.next;
+                paths[(Integer)head.item] =
             }
         }
+
+        return paths;
     }
 }
