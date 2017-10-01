@@ -1,6 +1,6 @@
 package LessDependenciesBFS;
 
-public abstract class Edge implements EdgeADT {
+public class Edge implements EdgeADT {
 
     private int node1;
     private int node2;

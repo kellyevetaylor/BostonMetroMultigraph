@@ -1,4 +1,4 @@
-package com.company;
+package LessDependenciesBFS;
 
 public class BadFileException extends Exception {
 
