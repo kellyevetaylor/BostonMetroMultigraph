@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Search {
-    public ArrayList<Integer> BFS(GraphADT graph, NodeADT startNode, NodeADT endNode) {
+    public ArrayList<Integer> BFS(GraphADT graph, INode startNode, INode endNode) {
 
         ArrayList<Integer> path = new ArrayList();
         ArrayList<Integer> visited = new ArrayList();

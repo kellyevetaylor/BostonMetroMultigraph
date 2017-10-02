@@ -1,6 +1,6 @@
 package LessDependenciesBFS;
 
-public interface EdgeADT {
+public interface IEdge {
 
     int getFirstID();
 

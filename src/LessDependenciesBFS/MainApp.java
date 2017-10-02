@@ -11,8 +11,8 @@ public class MainApp {
 
         try {
             bms = (BostonMetroSystem) mmp.generateGraphFromFile();
-            NodeADT node1 = new Node(1, "OakStreet");
-            NodeADT node2 = new Node(105, "Ashmont");
+            INode node1 = new Node(1, "OakStreet");
+            INode node2 = new Node(53, "Prudential");
             search.BFS(bms, node1, node2);
             System.out.println("Path is: ");
             for (Integer n : bms.shortest) {
