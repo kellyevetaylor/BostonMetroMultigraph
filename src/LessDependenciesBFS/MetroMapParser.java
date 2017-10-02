@@ -163,8 +163,8 @@ public class MetroMapParser {
                 inboundID = st.nextToken();
             }
 
-            graph.addNode(new Node(Integer.parseInt(stationID), stationName));
-            graph.addEdge(new Edge(Integer.parseInt(outboundID), Integer.parseInt(inboundID), lineName));
+            graph.addNode(Integer.parseInt(stationID), stationName);
+            graph.addEdge(Integer.parseInt(outboundID), Integer.parseInt(inboundID), lineName);
             line = fileInput.readLine();
         }
 

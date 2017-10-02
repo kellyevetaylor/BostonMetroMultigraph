@@ -17,19 +17,24 @@ public class BostonMetroSystem implements GraphADT {
         edges = new ArrayList<>();
     }
 
-    public BostonMetroSystem(List<NodeADT> nodes, List<EdgeADT> edges) {
-        this.nodes = nodes;
-        this.edges = edges;
-    }
-
     @Override
     public void addNode(NodeADT n) {
         nodes.add(n);
     }
 
     @Override
+    public void addNode(int ID, String name) {
+       nodes.add(new Node(ID, name));
+    }
+
+    @Override
     public void addEdge(EdgeADT e) {
         edges.add(e);
+    }
+
+    @Override
+    public void addEdge(int inID, int outID, String lineColor) {
+        edges.add(new Edge(inID, outID, lineColor));
     }
 
     public List<NodeADT> getNodes() {

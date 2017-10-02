@@ -3,9 +3,9 @@ package LessDependenciesBFS;
 import java.util.ArrayList;
 
 public interface GraphADT {
-    void addNode(NodeADT n);
+    void addNode(int ID, String name);
 
-    void addEdge(EdgeADT edge);
+    void addEdge(int inID, int outID, String lineColor);
 
     ArrayList<Integer> getSuccessors(int n);
 

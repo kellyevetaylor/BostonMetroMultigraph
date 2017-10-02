@@ -11,14 +11,11 @@ public class MainApp {
 
         try {
             bms = (BostonMetroSystem) mmp.generateGraphFromFile();
-            NodeADT node1 = new Node(1, "OakStreet");
-            NodeADT node2 = new Node(105, "Ashmont");
-            search.BFS(bms, node1, node2);
-            System.out.println("Path is: ");
-            for (Integer n : bms.shortest) {
-                System.out.println(n);
-            }
+            int start = 1; // OakStreet
+            int finish = 105; // 105
 
+            search.BFS(bms, start, finish);
+            System.out.println("Path is: ");
             bms.getNodes().stream()
                     .filter(node -> bms.shortest.stream().anyMatch(id -> id == node.getId()))
                     .forEach(System.out::println);
