@@ -18,6 +18,11 @@ public class MainApp {
             for (Integer n : bms.shortest) {
                 System.out.println(n);
             }
+
+            bms.getNodes().stream()
+                    .filter(node -> bms.shortest.stream().anyMatch(id -> id == node.getId()))
+                    .forEach(System.out::println);
+
         } catch (BadFileException e) {
             e.printStackTrace();
         }

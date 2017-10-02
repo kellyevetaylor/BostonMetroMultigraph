@@ -32,6 +32,10 @@ public class BostonMetroSystem implements GraphADT {
         edges.add(e);
     }
 
+    public List<NodeADT> getNodes() {
+        return nodes;
+    }
+
     @Override
     public ArrayList<Integer> getSuccessors(int n) {
         ArrayList<Integer> successors = new ArrayList<>();

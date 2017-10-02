@@ -18,4 +18,8 @@ public class Node implements NodeADT {
         return stationName;
     }
 
+    @Override
+    public String toString() {
+        return this.stationName;
+    }
 }
