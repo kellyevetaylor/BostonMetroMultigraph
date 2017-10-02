@@ -6,7 +6,6 @@ import java.util.Queue;
 
 public class Search {
     public ArrayList<Integer> BFS(GraphADT graph, int startNode, int endNode) {
-
         ArrayList<Integer> path = new ArrayList<>();
         ArrayList<Integer> visited = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();

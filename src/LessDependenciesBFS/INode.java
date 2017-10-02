@@ -1,6 +1,6 @@
 package LessDependenciesBFS;
 
-public interface NodeADT {
+public interface INode {
 
     int getId();
 }

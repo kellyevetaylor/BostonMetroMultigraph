@@ -1,14 +1,12 @@
 package LessDependenciesBFS;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class BostonMetroSystem implements GraphADT {
 
-    private List<NodeADT> nodes;
-    private List<EdgeADT> edges;
+    private List<INode> nodes;
+    private List<IEdge> edges;
     ArrayList<Integer> shortest = new ArrayList();
 
 
@@ -16,20 +14,9 @@ public class BostonMetroSystem implements GraphADT {
         nodes = new ArrayList<>();
         edges = new ArrayList<>();
     }
-
-    @Override
-    public void addNode(NodeADT n) {
-        nodes.add(n);
-    }
-
     @Override
     public void addNode(int ID, String name) {
        nodes.add(new Node(ID, name));
-    }
-
-    @Override
-    public void addEdge(EdgeADT e) {
-        edges.add(e);
     }
 
     @Override
@@ -37,7 +24,7 @@ public class BostonMetroSystem implements GraphADT {
         edges.add(new Edge(inID, outID, lineColor));
     }
 
-    public List<NodeADT> getNodes() {
+    public List<INode> getNodes() {
         return nodes;
     }
 
@@ -45,7 +32,7 @@ public class BostonMetroSystem implements GraphADT {
     public ArrayList<Integer> getSuccessors(int n) {
         ArrayList<Integer> successors = new ArrayList<>();
 
-        for (EdgeADT edge : edges) {
+        for (IEdge edge : edges) {
             if (edge.getFirstID() == n) {
                 successors.add(edge.getSecondID());
             }
