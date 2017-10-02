@@ -9,8 +9,6 @@ public class BostonMetroSystem implements GraphADT {
 
     private List<NodeADT> nodes;
     private List<EdgeADT> edges;
-    private ArrayList<Integer> path = new ArrayList();
-    private ArrayList<Integer> visited = new ArrayList();
     ArrayList<Integer> shortest = new ArrayList();
 
 
@@ -34,6 +32,7 @@ public class BostonMetroSystem implements GraphADT {
         edges.add(e);
     }
 
+    @Override
     public ArrayList<Integer> getSuccessors(int n) {
         ArrayList<Integer> successors = new ArrayList<>();
 
@@ -42,8 +41,6 @@ public class BostonMetroSystem implements GraphADT {
                 successors.add(edge.getSecondID());
             }
 
-            //this is so that it can go in both directions
-
             if (edge.getSecondID() == n) {
                 successors.add(edge.getFirstID());
             }
@@ -51,35 +48,7 @@ public class BostonMetroSystem implements GraphADT {
         return successors;
     }
 
-
-    public ArrayList<Integer> BFS(NodeADT startNode, NodeADT endNode) {
-
-        Queue queue = new LinkedList();
-        queue.add(startNode.getId());
-        //startNode.setVisited(true);
-        visited.add(startNode.getId());
-
-        while (!queue.isEmpty()) {
-            int n = (int) queue.poll();
-            ArrayList<Integer> successors = getSuccessors(n);
-            for (int child : successors) {
-
-                path.add(child);
-                path.add(n);
-
-                if (child == endNode.getId()) {
-                    return processPath(startNode.getId(), endNode.getId(), path);
-                } else {
-                    if (!visited.contains(child)) {
-                        queue.add(child);
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    private ArrayList<Integer> processPath(int src, int destination, ArrayList<Integer> path) {
+    public ArrayList<Integer> processPath(int src, int destination, ArrayList<Integer> path) {
 
         // Finds out where the destination node directly comes from.
         int index = path.indexOf(destination);
