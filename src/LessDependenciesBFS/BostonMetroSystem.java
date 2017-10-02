@@ -14,14 +14,12 @@ public class BostonMetroSystem implements GraphADT {
     ArrayList<Integer> shortest = new ArrayList();
 
 
-
-
     public BostonMetroSystem() {
         nodes = new ArrayList<>();
         edges = new ArrayList<>();
     }
 
-    public BostonMetroSystem(List<NodeADT> nodes, List<EdgeADT> edges){
+    public BostonMetroSystem(List<NodeADT> nodes, List<EdgeADT> edges) {
         this.nodes = nodes;
         this.edges = edges;
     }
@@ -39,14 +37,14 @@ public class BostonMetroSystem implements GraphADT {
     public ArrayList<Integer> getSuccessors(int n) {
         ArrayList<Integer> successors = new ArrayList<>();
 
-        for(EdgeADT edge : edges){
-            if(edge.getFirstID() == n){
+        for (EdgeADT edge : edges) {
+            if (edge.getFirstID() == n) {
                 successors.add(edge.getSecondID());
             }
 
             //this is so that it can go in both directions
 
-            if(edge.getSecondID() == n){
+            if (edge.getSecondID() == n) {
                 successors.add(edge.getFirstID());
             }
         }
@@ -61,8 +59,8 @@ public class BostonMetroSystem implements GraphADT {
         //startNode.setVisited(true);
         visited.add(startNode.getId());
 
-        while(!queue.isEmpty()) {
-            int n=(int)queue.poll();
+        while (!queue.isEmpty()) {
+            int n = (int) queue.poll();
             ArrayList<Integer> successors = getSuccessors(n);
             for (int child : successors) {
 
@@ -77,12 +75,10 @@ public class BostonMetroSystem implements GraphADT {
                     }
                 }
             }
-
-
         }
-
         return null;
     }
+
     private ArrayList<Integer> processPath(int src, int destination, ArrayList<Integer> path) {
 
         // Finds out where the destination node directly comes from.
@@ -90,11 +86,11 @@ public class BostonMetroSystem implements GraphADT {
         int source = path.get(index + 1);
 
         // Adds the destination node to the shortestPath.
-        shortest.add(0,destination);
+        shortest.add(0, destination);
 
         if (source == src) {
             // The original source node is found.
-            shortest.add(0,src);
+            shortest.add(0, src);
             return shortest;
         } else {
             // We find where the source node of the destination node

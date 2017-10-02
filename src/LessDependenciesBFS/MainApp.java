@@ -10,11 +10,11 @@ public class MainApp {
 
         try {
             bms = (BostonMetroSystem) mmp.generateGraphFromFile();
-            NodeADT node1 = new Node(1,"OakStreet");
-            NodeADT node2 = new Node(105,"Ashmont");
-            bms.BFS(node1,node2);
+            NodeADT node1 = new Node(1, "OakStreet");
+            NodeADT node2 = new Node(105, "Ashmont");
+            bms.BFS(node1, node2);
             System.out.println("Path is: ");
-            for (Integer n:bms.shortest){
+            for (Integer n : bms.shortest) {
                 System.out.println(n);
             }
         } catch (BadFileException e) {

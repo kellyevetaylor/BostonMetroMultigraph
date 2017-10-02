@@ -44,11 +44,11 @@ public class Main {
         Graph gr = new Graph(nodes, edges);
         Node h = new Node(7, "HHH");
         gr.addNode(h);
-        gr.addEdge(new Edge(1,7,"whatevs"));
+        gr.addEdge(new Edge(1, 7, "whatevs"));
 
         gr.BFS(e, h);
         System.out.println("Path is: ");
-        for (Integer n:gr.shortest){
+        for (Integer n : gr.shortest) {
             System.out.println(n);
         }
     }

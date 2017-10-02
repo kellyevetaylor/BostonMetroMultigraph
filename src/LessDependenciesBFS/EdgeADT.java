@@ -2,7 +2,7 @@ package LessDependenciesBFS;
 
 public interface EdgeADT {
 
-     int getFirstID();
+    int getFirstID();
 
     int getSecondID();
 

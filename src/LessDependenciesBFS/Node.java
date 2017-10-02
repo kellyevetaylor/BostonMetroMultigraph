@@ -5,16 +5,16 @@ public class Node implements NodeADT {
     private String stationName;
 //    private boolean visited;
 
-    public Node(int id, String stationName){
+    public Node(int id, String stationName) {
         this.id = id;
         this.stationName = stationName;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public String getStationName(){
+    public String getStationName() {
         return stationName;
     }
 
