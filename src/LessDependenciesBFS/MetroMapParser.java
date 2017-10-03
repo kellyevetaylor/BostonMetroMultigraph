@@ -3,6 +3,7 @@ package LessDependenciesBFS;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -103,6 +104,9 @@ public class MetroMapParser {
 
         GraphADT graph = new BostonMetroSystem();
 
+        ArrayList<Integer> inbound = new ArrayList<>();
+        ArrayList<Integer> outbound = new ArrayList<>();
+        ArrayList<String> lineColor = new ArrayList<>();
         String line = fileInput.readLine();
         StringTokenizer st;
         String stationID;
@@ -165,8 +169,27 @@ public class MetroMapParser {
                 inboundID = st.nextToken();
 
                 if (Integer.parseInt(outboundID) != 0 && Integer.parseInt(inboundID) != 0) {
-                    graph.addEdge(Integer.parseInt(outboundID), Integer.parseInt(stationID), lineName);
-                    graph.addEdge(Integer.parseInt(stationID), Integer.parseInt(inboundID), lineName);
+                    //                        graph.addEdge(Integer.parseInt(outboundID), Integer.parseInt(stationID), lineName);
+                    if (Integer.parseInt(outboundID) < Integer.parseInt(stationID)) {
+                        inbound.add(Integer.parseInt(outboundID));
+                        outbound.add(Integer.parseInt(stationID));
+                        lineColor.add(lineName);
+                    } else {
+                        outbound.add(Integer.parseInt(outboundID));
+                        inbound.add(Integer.parseInt(stationID));
+                        lineColor.add(lineName);
+                    }
+                    // graph.addEdge(Integer.parseInt(stationID), Integer.parseInt(inboundID), lineName);
+                    if (Integer.parseInt(inboundID) < Integer.parseInt(stationID)) {
+                        inbound.add(Integer.parseInt(inboundID));
+                        outbound.add(Integer.parseInt(stationID));
+                        lineColor.add(lineName);
+                    } else {
+                        outbound.add(Integer.parseInt(inboundID));
+                        inbound.add(Integer.parseInt(stationID));
+                        lineColor.add(lineName);
+                    }
+
                 }
             }
 
@@ -174,6 +197,18 @@ public class MetroMapParser {
             line = fileInput.readLine();
         }
 
+        for (int i = 0; i < inbound.size() - 1; i++)
+            for (int j = i + 1; j < inbound.size(); j++)
+                if (inbound.get(i) == inbound.get(j) && outbound.get(i) == outbound.get(j) && lineColor.get(i).equals(lineColor.get(j))) {
+                    inbound.remove(j);
+                    outbound.remove(j);
+                    lineColor.remove(j);
+                    j--;
+                }
+
+
+        for (int i = 0; i < inbound.size(); i++)
+            graph.addEdge(inbound.get(i), outbound.get(i), lineColor.get(i));
         return graph;
     }
 }
