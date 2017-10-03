@@ -8,11 +8,13 @@ public class BostonMetroSystem implements GraphADT {
     private List<INode> nodes;
     private List<IEdge> edges;
     ArrayList<Integer> shortest = new ArrayList();
+    private Search search;
 
 
     public BostonMetroSystem() {
         nodes = new ArrayList<>();
         edges = new ArrayList<>();
+        search = new Search();
     }
     @Override
     public void addNode(int ID, String name) {
@@ -63,5 +65,10 @@ public class BostonMetroSystem implements GraphADT {
             // We then set the source node to be the destination node.
             return processPath(src, source, path);
         }
+    }
+
+    @Override
+    public ArrayList<Integer> search(GraphADT graph, int startNode, int endNode) {
+       return search.search( this, startNode, endNode );
     }
 }

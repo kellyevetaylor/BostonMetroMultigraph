@@ -40,4 +40,9 @@ public interface GraphADT {
      * @return path to take.
      */
     ArrayList<Integer> processPath(int id, int id1, ArrayList<Integer> path);
+
+    /**
+     * Searches the graph.
+     */
+    ArrayList<Integer> search(GraphADT graph, int startNode, int endNode);
 }

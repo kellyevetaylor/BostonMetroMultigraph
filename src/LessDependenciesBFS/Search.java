@@ -12,7 +12,7 @@ public class Search {
      * @param endNode our destination.
      * @return path - path of nodes to visit for the path.
      */
-    public ArrayList<Integer> BFS(GraphADT graph, int startNode, int endNode) {
+    public ArrayList<Integer> search(GraphADT graph, int startNode, int endNode) {
         ArrayList<Integer> path = new ArrayList<>();
         ArrayList<Integer> visited = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();

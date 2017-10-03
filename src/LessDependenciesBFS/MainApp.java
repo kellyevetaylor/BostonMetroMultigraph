@@ -7,14 +7,13 @@ public class MainApp {
 
     public static void main(String[] args) throws IOException {
         MetroMapParser mmp = new MetroMapParser("bostonmetro.txt");
-        Search search = new Search();
 
         try {
             bms = (BostonMetroSystem) mmp.generateGraphFromFile();
             int start = 1; // OakStreet
             int finish = 105; // 105
 
-            search.BFS(bms, start, finish);
+            bms.search(bms, start, finish);
             System.out.println("Path is: ");
             bms.getNodes().stream()
                     .filter(node -> bms.shortest.stream().anyMatch(id -> id == node.getId()))
