@@ -147,6 +147,8 @@ public class MetroMapParser {
             }
 
 
+            graph.addNode(Integer.parseInt(stationID), stationName);
+
             while (st.hasMoreTokens()) {
                 lineName = st.nextToken();
 
@@ -161,10 +163,14 @@ public class MetroMapParser {
                 }
 
                 inboundID = st.nextToken();
+
+                if (Integer.parseInt(outboundID) != 0 && Integer.parseInt(inboundID) != 0) {
+                    graph.addEdge(Integer.parseInt(outboundID), Integer.parseInt(stationID), lineName);
+                    graph.addEdge(Integer.parseInt(stationID), Integer.parseInt(inboundID), lineName);
+                }
             }
 
-            graph.addNode(Integer.parseInt(stationID), stationName);
-            graph.addEdge(Integer.parseInt(outboundID), Integer.parseInt(inboundID), lineName);
+
             line = fileInput.readLine();
         }
 

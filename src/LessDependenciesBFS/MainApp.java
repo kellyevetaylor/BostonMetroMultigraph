@@ -12,7 +12,7 @@ public class MainApp {
         try {
             bms = (BostonMetroSystem) mmp.generateGraphFromFile();
             int start = 1; // OakStreet
-            int finish = 105; // 105
+            int finish = 64; // 105
 
             search.BFS(bms, start, finish);
             System.out.println("Path is: ");
