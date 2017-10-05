@@ -9,6 +9,10 @@ public class Node implements INode {
         this.stationName = stationName;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }

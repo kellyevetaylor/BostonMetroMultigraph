@@ -1,5 +1,6 @@
 package LessDependenciesBFS;
 
+import java.io.IOException;
 import java.util.*;
 
 public class UI {
@@ -15,20 +16,26 @@ public class UI {
 
     public UI() {
 
-        public static void main(String[] args) throws IOException {
-            MetroMapParser mmp = new MetroMapParser("bostonmetro.txt");
+        public static void main(String[] args) {
+            MetroMapParser mmp = null;
+            try {
+                mmp = new MetroMapParser("bostonmetro.txt");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Search search = new Search();
-
             try {
                 bms = (BostonMetroSystem) mmp.generateGraphFromFile();
             } catch (BadFileException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
             selectStationName(true);
             selectStationName(false);
 
-            path = search.BFS(bms, bms.stationNametoID(firstStationName), bms.stationNametoID(secondStationName));
+            path = search.search(bms, bms.stationNametoID(firstStationName), bms.stationNametoID(secondStationName));
 
         }
 

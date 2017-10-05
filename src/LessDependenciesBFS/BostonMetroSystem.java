@@ -67,26 +67,26 @@ public class BostonMetroSystem implements GraphADT {
 
     //Checks if a station exists.
 
-    public boolean convert doesStationExist(String stationName) {
-        ArrayList<Node> nodeList = getNodes();
-        for(int i = 0; i < nodeList.size(); i++) {
-            if(nodeList.get(i).getStationName().compareTo(firstStationName) == 0){
+    public boolean doesStationExist(String stationName) {
+        for(int i = 0; i < nodes.size(); i++) {
+            if(nodes.get(i).getStationName().compareTo(stationName) == 0){
                 return true;
             } else {
                 return false;
             }
         }
+        return false;
     }
 
     //Converts a station name to its id.
 
     public int stationNametoID (String stationName) {
-        ArrayList<Node> nodeList = getNodes();
-        for(int i = 0; i < nodeList.size(); i++) {
-            if(nodeList.get(i).getStationName().compareTo(stationName) == 0){
-                return nodeList.get(i).getID();
+        for (int i = 0; i < nodes.size(); i++) {
+            if (nodes.get(i).getStationName().compareTo(stationName) == 0) {
+                return nodes.get(i).getId();
             }
         }
+        return 0;
     }
 
     @Override
@@ -98,3 +98,4 @@ public class BostonMetroSystem implements GraphADT {
         return edges;
     }
 }
+
