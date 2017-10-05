@@ -56,7 +56,7 @@ public class MainApp {
             while (!valid);
             valid=false;
 
-            search.BFS(bms, main.start, main.finish);
+            search.search(bms, main.start, main.finish);
             main.directions(bms);
             System.out.println("Path is: ");
             for (Integer n : bms.shortest) {

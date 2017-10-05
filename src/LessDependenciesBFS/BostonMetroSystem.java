@@ -64,6 +64,12 @@ public class BostonMetroSystem implements GraphADT {
             return processPath(src, source, path);
         }
     }
+
+    @Override
+    public ArrayList<Integer> search(GraphADT graph, int startNode, int endNode) {
+        return null;
+    }
+
     public List<IEdge> getEdges(){
         return edges;
     }
