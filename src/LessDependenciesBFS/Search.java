@@ -21,6 +21,8 @@ public class Search {
                 path.add(child);
                 path.add(n);
 
+                //visited.add(child);
+                visited.add(n);
                 if (child == endNode) {
                     return graph.processPath(startNode, endNode, path);
                 } else {

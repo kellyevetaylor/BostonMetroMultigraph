@@ -1,5 +1,4 @@
 package LessDependenciesBFS;
-
 import java.util.ArrayList;
 
 public interface GraphADT {

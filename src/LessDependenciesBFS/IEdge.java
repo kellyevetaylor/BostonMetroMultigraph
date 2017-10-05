@@ -7,4 +7,6 @@ public interface IEdge {
     int getSecondID();
 
     String getLineColor();
+
+
 }
