@@ -98,7 +98,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>LessDependenciesBFS.Edge</li>
+<li>LessDependenciesBFS.Line</li>
 </ul>
 </li>
 </ul>
@@ -155,7 +155,7 @@ implements <a href="../LessDependenciesBFS/IEdge.html" title="interface in LessD
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../LessDependenciesBFS/Edge.html#getFirstID--">getFirstID</a></span>()</code>
-<div class="block">Get id of first connected node.</div>
+<div class="block">Get id of first connected INode.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -167,7 +167,7 @@ implements <a href="../LessDependenciesBFS/IEdge.html" title="interface in LessD
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../LessDependenciesBFS/Edge.html#getSecondID--">getSecondID</a></span>()</code>
-<div class="block">Get id of second connected node.</div>
+<div class="block">Get id of second connected INode.</div>
 </td>
 </tr>
 </table>
@@ -203,8 +203,8 @@ implements <a href="../LessDependenciesBFS/IEdge.html" title="interface in LessD
             java.lang.String&nbsp;lineColor)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>node1</code> - - id first node.</dd>
-<dd><code>node2</code> - - id of the second node.</dd>
+<dd><code>node1</code> - - id first INode.</dd>
+<dd><code>node2</code> - - id of the second INode.</dd>
 <dd><code>lineColor</code> - - string name of line color.</dd>
 </dl>
 </li>
@@ -224,7 +224,7 @@ implements <a href="../LessDependenciesBFS/IEdge.html" title="interface in LessD
 <li class="blockList">
 <h4>getFirstID</h4>
 <pre>public&nbsp;int&nbsp;getFirstID()</pre>
-<div class="block">Get id of first connected node.</div>
+<div class="block">Get id of first connected INode.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../LessDependenciesBFS/IEdge.html#getFirstID--">getFirstID</a></code>&nbsp;in interface&nbsp;<code><a href="../LessDependenciesBFS/IEdge.html" title="interface in LessDependenciesBFS">IEdge</a></code></dd>
@@ -240,7 +240,7 @@ implements <a href="../LessDependenciesBFS/IEdge.html" title="interface in LessD
 <li class="blockList">
 <h4>getSecondID</h4>
 <pre>public&nbsp;int&nbsp;getSecondID()</pre>
-<div class="block">Get id of second connected node.</div>
+<div class="block">Get id of second connected INode.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../LessDependenciesBFS/IEdge.html#getSecondID--">getSecondID</a></code>&nbsp;in interface&nbsp;<code><a href="../LessDependenciesBFS/IEdge.html" title="interface in LessDependenciesBFS">IEdge</a></code></dd>

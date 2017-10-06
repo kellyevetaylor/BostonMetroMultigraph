@@ -23,6 +23,7 @@ public class Search {
         while (!queue.isEmpty()) {
             int n = queue.poll();
             ArrayList<Integer> successors = graph.getSuccessors(n);
+
             for (int child : successors) {
 
                 path.add(child);

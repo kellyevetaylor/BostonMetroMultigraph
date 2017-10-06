@@ -30,7 +30,7 @@ public class MainApp {
             {
             	System.out.println("Enter starting station: ");
              startnode = scanner.next();
-              for (INode n: bms.getNodes()) {
+              for (Node n: bms.getNodes()) {
   				if (n.getStationName().equals(startnode)) {
   					main.start = n.getId();
   					 valid=true;
@@ -45,7 +45,7 @@ public class MainApp {
             {
             System.out.println("Enter ending station: ");
             endnode = scanner.next();
-              for (INode n: bms.getNodes()) {
+              for (Node n: bms.getNodes()) {
   				if (n.getStationName().equals(endnode)) {
   					main.finish = n.getId();
   					 valid=true;
@@ -60,7 +60,7 @@ public class MainApp {
             main.directions(bms);
             System.out.println("Path is: ");
             for (Integer n : bms.shortest) {
-                for (INode node : bms.getNodes())
+                for (Node node : bms.getNodes())
                     if (n == node.getId()) {
                         System.out.println(node.getStationName());
                     }
@@ -84,11 +84,11 @@ public class MainApp {
 //        	spn.add(node);
 //        	}
 //        }
-        ArrayList<IEdge> edges = new ArrayList();
-        ArrayList<IEdge> sortededges = new ArrayList();
+        ArrayList<Edge> edges = new ArrayList();
+        ArrayList<Edge> sortededges = new ArrayList();
 
 
-        for (IEdge edge : bms.getEdges()) {
+        for (Edge edge : bms.getEdges()) {
             for (int i = 0; i < bms.shortest.size() - 1; i++) {
                 if ((edge.getFirstID() == bms.shortest.get(i) && edge.getSecondID() == bms.shortest.get(i + 1))
                         || (edge.getSecondID() == bms.shortest.get(i) && edge.getFirstID() == bms.shortest.get(i + 1))) {
@@ -97,14 +97,14 @@ public class MainApp {
 
             }
         }
-        for (IEdge e : edges) {
+        for (Edge e : edges) {
             for (Integer i : bms.shortest) {
                 if (i == e.getFirstID()) {
                     sortededges.add(e);
                 }
             }
         }
-        for (IEdge e : sortededges) {
+        for (Edge e : sortededges) {
             System.out.println(e.getLineColor());
         }
 

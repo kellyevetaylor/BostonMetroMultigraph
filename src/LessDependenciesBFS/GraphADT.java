@@ -14,7 +14,7 @@ public interface GraphADT {
     void addNode(int ID, String name);
 
     /**
-     * Edge connecting two nodes.
+     * Line connecting two nodes.
      *
      * @param inID      - id of incoming connection.
      * @param outID     - id of outgoing direction.

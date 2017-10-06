@@ -5,8 +5,8 @@ import java.util.List;
 
 public class BostonMetroSystem implements GraphADT {
 
-    private List<INode> nodes;
-    private List<IEdge> edges;
+    private List<Node> nodes;
+    private List<Edge> edges;
     ArrayList<Integer> shortest = new ArrayList();
 
 
@@ -16,15 +16,15 @@ public class BostonMetroSystem implements GraphADT {
     }
     @Override
     public void addNode(int ID, String name) {
-       nodes.add(new Node(ID, name));
+       nodes.add(new Station(ID, name));
     }
 
     @Override
     public void addEdge(int inID, int outID, String lineColor) {
-        edges.add(new Edge(inID, outID, lineColor));
+        edges.add(new Line(inID, outID, lineColor));
     }
 
-    public List<INode> getNodes() {
+    public List<Node> getNodes() {
         return nodes;
     }
 
@@ -32,7 +32,7 @@ public class BostonMetroSystem implements GraphADT {
     public ArrayList<Integer> getSuccessors(int n) {
         ArrayList<Integer> successors = new ArrayList<>();
 
-        for (IEdge edge : edges) {
+        for (Edge edge : edges) {
             if (edge.getFirstID() == n) {
                 successors.add(edge.getSecondID());
             }
@@ -94,7 +94,7 @@ public class BostonMetroSystem implements GraphADT {
         return null;
     }
 
-    public List<IEdge> getEdges(){
+    public List<Edge> getEdges(){
         return edges;
     }
 }
