@@ -42,9 +42,9 @@ public class Graph implements GraphADT {
         int id1 = 0;
         int id2 = 0;
         for(int i=0;i<nodes.size();i++){
-            if(nodes.get(i).getName().equals(start))
+            if(nodes.get(i).getName().equalsIgnoreCase(start))
                 id1 = i;
-            if(nodes.get(i).getName().equals(end))
+            if(nodes.get(i).getName().equalsIgnoreCase(end))
                 id2 = i;
         }
         search(nodes.get(id1).getId(),nodes.get(id2).getId());
