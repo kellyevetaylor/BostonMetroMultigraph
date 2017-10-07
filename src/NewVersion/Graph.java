@@ -5,13 +5,11 @@ import java.util.*;
 public class Graph implements GraphADT {
     private List<INode> nodes;
     private List<IEdge> edges;
-    private Map<String, String> predecessors;
     List<Integer> shortest = new ArrayList();
 
     public Graph() {
         nodes = new ArrayList<>();
         edges = new ArrayList<>();
-        predecessors = new HashMap<>();
     }
 
     @Override
@@ -22,13 +20,6 @@ public class Graph implements GraphADT {
     @Override
     public void addEdge(IEdge edge) {
         edges.add(edge);
-    }
-
-    private IEdge getEdge(String node1, String node2){
-        for(IEdge edge: edges)
-            if((node1.equals(edge.getFirstNode().getName()) && node2.equals(edge.getSecondNode().getName())) || (node2.equals(edge.getFirstNode().getName()) && node1.equals(edge.getSecondNode().getName())))
-                return edge;
-        return null;
     }
 
 
@@ -58,6 +49,11 @@ public class Graph implements GraphADT {
         }
         search(nodes.get(id1).getId(),nodes.get(id2).getId());
         printPath();
+    }
+
+    @Override
+    public List<INode> getNodes() {
+        return nodes;
     }
 
     public void search(int startNode, int endNode) {

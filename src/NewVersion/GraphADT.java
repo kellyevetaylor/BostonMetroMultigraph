@@ -24,4 +24,6 @@ public interface GraphADT {
      * Searches the graph.
      */
     void search(String start, String end);
+
+    List<INode> getNodes();
 }

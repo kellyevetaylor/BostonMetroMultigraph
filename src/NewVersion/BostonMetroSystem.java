@@ -1,5 +1,7 @@
 package NewVersion;
 
+import java.util.List;
+
 public class BostonMetroSystem {
     public  GraphADT g;
 
@@ -20,4 +22,7 @@ public class BostonMetroSystem {
     }
 
 
+    public List<INode> getStations() {
+        return g.getNodes();
+    }
 }

@@ -1,6 +1,6 @@
 package LessDependenciesBFS;
 
-public class Station implements Node {
+public class Station implements INode {
     private int id;
     private String stationName;
 
