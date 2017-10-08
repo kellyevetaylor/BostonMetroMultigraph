@@ -17,7 +17,7 @@ public class BostonMetroSystem {
         g.addEdge(line);
     }
 
-    public void search(String start, String end){
+    public void search(int start, int end){
         g.search(start, end);
     }
 
