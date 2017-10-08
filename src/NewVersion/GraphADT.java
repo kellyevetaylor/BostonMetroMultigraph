@@ -23,7 +23,7 @@ public interface GraphADT {
     /**
      * Searches the graph.
      */
-    void search(String start, String end);
+    void search(int start, int end);
 
     List<INode> getNodes();
 }
