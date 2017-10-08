@@ -26,4 +26,5 @@ public interface GraphADT {
     void search(int start, int end);
 
     List<INode> getNodes();
+
 }
