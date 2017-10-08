@@ -20,7 +20,7 @@ public class MainApp2 {
                 ui.selectStationName(bms, true);
                 ui.selectStationName(bms, false);
 
-                bms.search(ui.getFirstStationName(), ui.getSecondStationName());
+               bms.search(ui.getFirstStationId(), ui.getSecondStationId());
             }
 
         } catch (IOException e) {
