@@ -51,7 +51,6 @@ public class UI {
 
             userInput = sc.nextLine();
             userInput = userInput.replaceAll(" ", "");
-            System.out.println(userInput);
 
             if (userInput.equalsIgnoreCase("quit")){
                 quit();

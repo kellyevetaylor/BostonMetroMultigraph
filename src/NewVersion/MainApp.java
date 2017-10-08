@@ -47,7 +47,7 @@ public class MainApp {
                     System.out.println("Not a valid station, try again.");
             }
             while (!valid);
-            bms.search(startStation,endStation);
+           // bms.search(startStation,endStation);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (BadFileException e) {

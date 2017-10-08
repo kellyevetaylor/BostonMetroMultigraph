@@ -7,6 +7,7 @@ public class Graph implements GraphADT {
     private List<IEdge> edges;
     List<Integer> shortest = new ArrayList();
 
+
     public Graph() {
         nodes = new ArrayList<>();
         edges = new ArrayList<>();
@@ -23,8 +24,8 @@ public class Graph implements GraphADT {
     }
 
 
-    public ArrayList<Integer> getSuccessors(int n) {
-        ArrayList<Integer> successors = new ArrayList<>();
+    public List<Integer> getSuccessors(int n) {
+        List<Integer> successors = new ArrayList<>();
 
         for (IEdge edge : edges) {
             if (edge.getFirstNode().getId() == n) {
@@ -38,7 +39,7 @@ public class Graph implements GraphADT {
         return successors;
     }
 
-    
+
 
     @Override
     public List<INode> getNodes() {
@@ -47,8 +48,8 @@ public class Graph implements GraphADT {
 
 
     public void search(int startNode, int endNode) {
-        ArrayList<Integer> path = new ArrayList<>();
-        ArrayList<Integer> visited = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        List<Integer> visited = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
         queue.add(startNode);
 
@@ -56,7 +57,7 @@ public class Graph implements GraphADT {
 
         while (!queue.isEmpty()) {
             int n = queue.poll();
-            ArrayList<Integer> successors = getSuccessors(n);
+            List<Integer> successors = getSuccessors(n);
 
             for (int child : successors) {
 
@@ -74,7 +75,7 @@ public class Graph implements GraphADT {
                 }
             }
         }
-         printPath();
+        printPath();
     }
 
 
@@ -86,18 +87,53 @@ public class Graph implements GraphADT {
                pos = i;
                 break;
             }
+
+        List<Integer> ids = new ArrayList<>();
+
         for (int i=0;i<shortest.size() && i<pos;i++) {
             for (INode node : nodes)
                 if (shortest.get(i) == node.getId()) {
-                    System.out.println(node.getName());
+                    ids.add(node.getId());
                 }
         }
+
+        for(int i=0;i<ids.size()-2;i++){
+            int j = i+1;
+            String label = getLabel(ids.get(i),ids.get(j));
+            while(j<ids.size()-1){
+                if(getLabel(ids.get(j),ids.get(j+1)).equals(label))
+                    j++;
+                else
+                    break;
+            }
+            String station1 = null;
+            String station2 = null;
+            for(INode node:nodes)
+            {
+                if(node.getId()==ids.get(i))
+                    station1 = node.getName();
+                if(node.getId()==ids.get(j))
+                    station2 = node.getName();
+            }
+            System.out.println("From station "+ station1 + " to station " + station2 + " go on the " + label + " line.");
+            i = j-1;
+        }
+
+                
+    }
+
+    private String getLabel(int i, int j) {
+        for(IEdge edge : edges) {
+            if ((edge.getFirstNode().getId() == i && edge.getSecondNode().getId() == j) || (edge.getFirstNode().getId() == j && edge.getSecondNode().getId() == i))
+                return edge.getLabel();
+        }
+        return null;
     }
 
 
 
-    private List<Integer> processPath(int src, int destination, ArrayList<Integer> path) {
 
+    private List<Integer> processPath(int src, int destination, List<Integer> path) {
         // Finds out where the destination node directly comes from.
         int index = path.indexOf(destination);
         int source = path.get(index + 1);
@@ -116,5 +152,4 @@ public class Graph implements GraphADT {
             return processPath(src, source, path);
         }
     }
-
 }
