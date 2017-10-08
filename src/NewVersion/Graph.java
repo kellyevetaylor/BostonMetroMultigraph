@@ -38,18 +38,7 @@ public class Graph implements GraphADT {
         return successors;
     }
 
-    public void search(String start, String end){
-        int id1 = 0;
-        int id2 = 0;
-        for(int i=0;i<nodes.size();i++){
-            if(nodes.get(i).getName().equalsIgnoreCase(start))
-                id1 = i;
-            if(nodes.get(i).getName().equalsIgnoreCase(end))
-                id2 = i;
-        }
-        search(nodes.get(id1).getId(),nodes.get(id2).getId());
-        printPath();
-    }
+    
 
     @Override
     public List<INode> getNodes() {
@@ -84,6 +73,7 @@ public class Graph implements GraphADT {
                 }
             }
         }
+         printPath();
     }
 
 
