@@ -1,4 +1,4 @@
-package NewVersion; 
+package NewVersion;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,23 +14,23 @@ public class UI {
     private static BostonMetroSystem bms;
     ArrayList<Integer> path = new ArrayList<Integer>();
 
-    public UI()  {
+    public UI() {
 
     }
 
-    public String getFirstStationName(){
+    public String getFirstStationName() {
         return firstStationName;
     }
 
-    public String getSecondStationName(){
+    public String getSecondStationName() {
         return secondStationName;
     }
 
-    public int getFirstStationId(){
+    public int getFirstStationId() {
         return firstStationId;
     }
 
-    public int getSecondStationId(){
+    public int getSecondStationId() {
         return secondStationId;
     }
 
@@ -41,10 +41,10 @@ public class UI {
         Scanner sc = new Scanner(System.in);
         List<INode> nodes = bms.getStations();
 
-        while (1==1){
-            if(firstOrSecond) {
+        while (1 == 1) {
+            if (firstOrSecond) {
                 System.out.println("Please type the name of your starting station or 'quit' to exit the program.");
-                
+
             } else {
                 System.out.println("Please type the name of your destination station or 'quit' to exit the program.");
             }
@@ -52,88 +52,85 @@ public class UI {
             userInput = sc.nextLine();
             userInput = userInput.replaceAll(" ", "");
 
-            if (userInput.equalsIgnoreCase("quit")){
+            if (userInput.equalsIgnoreCase("quit")) {
                 quit();
             }
-   //NEW STUFF-----------------------------------------         
-        	if (userInput.equalsIgnoreCase("st.paulstreet")) {
-                while (1 == 1){
-                System.out.println("If you mean the one on Green B, input B.");
-                System.out.println("If you mean the one on Green C, input C.");
 
-                paul = sc.nextLine();
-                paul = paul.replaceAll(" ", "");
+            System.out.println("");
 
-                if (paul.equalsIgnoreCase("b")) {
-                    if (firstOrSecond) {
-                        firstStationId = 38;
-                        firstStationName = "st.paulstreet";
-                    } else {
-                        secondStationId = 38;
-                        secondStationName = "st.paulstreet";
+            //NEW STUFF-----------------------------------------
+            if (userInput.equalsIgnoreCase("st.paulstreet")) {
+                while (1 == 1) {
+                    System.out.println("If you mean the station on Green B, input B.");
+                    System.out.println("If you mean the station on Green C, input C.");
+
+                    paul = sc.nextLine();
+                    paul = paul.replaceAll(" ", "");
+
+                    if (paul.equalsIgnoreCase("b")) {
+                        if (firstOrSecond) {
+                            firstStationId = 38;
+                            firstStationName = "st.paulstreet";
+                        } else {
+                            secondStationId = 38;
+                            secondStationName = "st.paulstreet";
+                        }
+                        break;
                     }
-                    break;
-                }
-                if (paul.equalsIgnoreCase("c")) {
-                    if (firstOrSecond) {
-                        firstStationId = 61;
-                        firstStationName = "st.paulstreet";
-                    } else {
-                        secondStationId = 61;
-                        secondStationName = "st.paulstreet";
+                    if (paul.equalsIgnoreCase("c")) {
+                        if (firstOrSecond) {
+                            firstStationId = 61;
+                            firstStationName = "st.paulstreet";
+                        } else {
+                            secondStationId = 61;
+                            secondStationName = "st.paulstreet";
+                        }
+                        break;
                     }
-                    break;
+                    System.out.println("Sorry but that line doesn't exist. Please try again.\n");
                 }
-                    System.out.println("Sorry but that line doesn't exist. Please try again.");
             }
-        	}
-   		    	
-   		   
-        	
 
-            if (doesStationExist(bms, userInput)){
-            	
-                if(firstOrSecond) {
-                	if (firstStationId!=31 && firstStationId!=68) {
-                    firstStationName = userInput;
-                	}
+
+            if (doesStationExist(bms, userInput)) {
+
+                if (firstOrSecond) {
+                    if (firstStationId != 31 && firstStationId != 68) {
+                        firstStationName = userInput;
+                    }
                     break;
                 } else {
-                	if (secondStationId!=31 && secondStationId!=68)
-                    secondStationName = userInput;
+                    if (secondStationId != 31 && secondStationId != 68)
+                        secondStationName = userInput;
                     break;
                 }
-            } 
-            else {
-                System.out.println("Sorry, that name doesn't match any station. Please try again.");
+            } else {
+                System.out.println("Sorry, that name doesn't match any station. Please try again.\n");
             }
-            
-           
-            
-            
-            
-        	}
-        for(int i = 0; i < nodes.size(); i++) {
-    		if (nodes.get(i).getName().equalsIgnoreCase(firstStationName) && !nodes.get(i).getName().equalsIgnoreCase("st.paulstreet")) {
-    			firstStationId=nodes.get(i).getId();
-    		}
-    		if (nodes.get(i).getName().equalsIgnoreCase(secondStationName) && !nodes.get(i).getName().equalsIgnoreCase("st.paulstreet")) {
-    			secondStationId=nodes.get(i).getId();
-    		}
-    		 
-    }
-      //NEW STUFF--------------------------------
+
+
+        }
+        for (int i = 0; i < nodes.size(); i++) {
+            if (nodes.get(i).getName().equalsIgnoreCase(firstStationName) && !nodes.get(i).getName().equalsIgnoreCase("st.paulstreet")) {
+                firstStationId = nodes.get(i).getId();
+            }
+            if (nodes.get(i).getName().equalsIgnoreCase(secondStationName) && !nodes.get(i).getName().equalsIgnoreCase("st.paulstreet")) {
+                secondStationId = nodes.get(i).getId();
+            }
+
+        }
+        //NEW STUFF--------------------------------
 
     }
 
     private boolean doesStationExist(BostonMetroSystem bms, String stationName) {
         List<INode> nodes = bms.getStations();
-        for(int i = 0; i < nodes.size(); i++) {
-            if(nodes.get(i).getName().equalsIgnoreCase(stationName)) {
+        for (int i = 0; i < nodes.size(); i++) {
+            if (nodes.get(i).getName().equalsIgnoreCase(stationName)) {
                 return true;
             }
         }
-        
+
         return false;
     }
 
