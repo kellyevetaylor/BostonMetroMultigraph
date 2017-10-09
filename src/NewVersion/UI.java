@@ -1,7 +1,5 @@
 package NewVersion;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,19 +9,9 @@ public class UI {
     private String secondStationName;
     private int firstStationId;
     private int secondStationId;
-    private static BostonMetroSystem bms;
-    ArrayList<Integer> path = new ArrayList<Integer>();
 
     public UI() {
 
-    }
-
-    public String getFirstStationName() {
-        return firstStationName;
-    }
-
-    public String getSecondStationName() {
-        return secondStationName;
     }
 
     public int getFirstStationId() {
@@ -119,7 +107,6 @@ public class UI {
             }
 
         }
-        //NEW STUFF--------------------------------
 
     }
 

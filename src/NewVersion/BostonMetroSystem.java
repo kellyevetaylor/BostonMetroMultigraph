@@ -21,7 +21,6 @@ public class BostonMetroSystem {
         g.search(start, end);
     }
 
-
     public List<INode> getStations() {
         return g.getNodes();
     }

@@ -12,7 +12,6 @@ public class MainApp {
 
         MetroMapParser mmp = new MetroMapParser("bostonmetro.txt");
         UI ui = new UI();
-        ArrayList<Integer> path = new ArrayList<Integer>();
 
         try {
             bms = mmp.generateGraphFromFile();
