@@ -112,7 +112,7 @@ public class Graph implements GraphADT {
                 if (node.getId() == ids.get(j))
                     station2 = node.getName();
             }
-            System.out.println("From " + station1 + " to " + station2 + " go on the " + label + " line.");
+            System.out.format("From %s to %s go on the %s line.\n", station1, station2, label);
             i = j - 1;
         }
 
@@ -122,7 +122,8 @@ public class Graph implements GraphADT {
 
     private String getLabel(int i, int j) {
         for (IEdge edge : edges) {
-            if ((edge.getFirstNode().getId() == i && edge.getSecondNode().getId() == j) || (edge.getFirstNode().getId() == j && edge.getSecondNode().getId() == i))
+            if ((edge.getFirstNode().getId() == i && edge.getSecondNode().getId() == j)
+                    || (edge.getFirstNode().getId() == j && edge.getSecondNode().getId() == i))
                 return edge.getLabel();
         }
         return null;
