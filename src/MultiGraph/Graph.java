@@ -17,6 +17,8 @@ public class Graph implements GraphADT {
 
     /**
      * Adds the given node into an arraylist of nodes
+     *
+     * @param node - The INode which is added to the graph.
      */
     @Override
     public void addNode(INode node) {
@@ -25,13 +27,18 @@ public class Graph implements GraphADT {
 
     /**
      * Adds the given edge into an array list of edges
+     *
+     * @param edge - The IEdge which has to be added in the graph.
      */
     @Override
     public void addEdge(IEdge edge) {
         edges.add(edge);
     }
 
-
+    /**
+     * @param n
+     * @return
+     */
     List<Integer> getSuccessors(int n) {
         List<Integer> successors = new ArrayList<>();
 
@@ -47,7 +54,7 @@ public class Graph implements GraphADT {
 
 
     /**
-     * Returns the arraylist of nodes
+     * @return
      */
     @Override
     public List<INode> getNodes() {
@@ -56,6 +63,9 @@ public class Graph implements GraphADT {
 
     /**
      * Searches the map(breadth first) for the shortest path from the starting station to the destination station
+     *
+     * @param startNode
+     * @param endNode
      */
     public void search(int startNode, int endNode) {
         List path = bfs(startNode, endNode);
@@ -64,7 +74,9 @@ public class Graph implements GraphADT {
     }
 
     /**
-     *
+     * @param startNode
+     * @param endNode
+     * @return
      */
     private List bfs(int startNode, int endNode) {
         List<Integer> path = new ArrayList<>();
@@ -95,7 +107,6 @@ public class Graph implements GraphADT {
         }
         return null;
     }
-
 
     /**
      *
@@ -143,7 +154,9 @@ public class Graph implements GraphADT {
     }
 
     /**
-     *
+     * @param i
+     * @param j
+     * @return
      */
     private String getLabel(int i, int j) {
         for (IEdge edge : edges) {
@@ -159,6 +172,11 @@ public class Graph implements GraphADT {
 
     /**
      * Helper method for finding the shortest path
+     *
+     * @param src
+     * @param destination
+     * @param path
+     * @return
      */
     private List<Integer> processPath(int src, int destination, List<Integer> path) {
         // Finds out where the destination node directly comes from.

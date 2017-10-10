@@ -4,9 +4,6 @@ import java.util.List;
 
 public class BostonMetroSystem {
 
-    /**
-     * Creates GraphADT object
-     */
     private GraphADT g;
 
     public BostonMetroSystem() {
@@ -15,6 +12,9 @@ public class BostonMetroSystem {
 
     /**
      * Adds a station to the map
+     *
+     * @param ID
+     * @param stationName
      */
     void addStation(int ID, String stationName) {
         g.addNode(new Station(ID, stationName));
@@ -22,6 +22,8 @@ public class BostonMetroSystem {
 
     /**
      * Adds a line to the map
+     *
+     * @param line
      */
     void addLine(Line line) {
         g.addEdge(line);
@@ -29,13 +31,17 @@ public class BostonMetroSystem {
 
     /**
      * Calls on search method within the GraphADT
+     *
+     * @param start
+     * @param end
      */
     public void search(int start, int end) {
         g.search(start, end);
     }
 
     /**
-     * Returns the list of stations
+     *
+     * @return
      */
     List<INode> getStations() {
         return g.getNodes();
