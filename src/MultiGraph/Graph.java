@@ -8,7 +8,7 @@ public class Graph implements GraphADT {
     private List<Integer> shortest = new ArrayList();
 
     /**
-     * Initialises 2 arraylists for nodes and edges
+     * Initialises 2 lists for nodes and edges
      */
     public Graph() {
         nodes = new ArrayList<>();
@@ -16,7 +16,7 @@ public class Graph implements GraphADT {
     }
 
     /**
-     * Adds the given node into an arraylist of nodes
+     * Adds the given node into an list of nodes
      *
      * @param node - The INode which is added to the graph.
      */
@@ -36,6 +36,8 @@ public class Graph implements GraphADT {
     }
 
     /**
+     * Returns a list of all station IDs directly connected to the station whose ID is passed as input
+     *
      * @param n
      * @return
      */
@@ -62,7 +64,7 @@ public class Graph implements GraphADT {
     }
 
     /**
-     * Searches the map(breadth first) for the shortest path from the starting station to the destination station
+     * Calls on bfs and prints the shortest path
      *
      * @param startNode
      * @param endNode
@@ -74,6 +76,8 @@ public class Graph implements GraphADT {
     }
 
     /**
+     * Searches the map(breadth first) for the shortest path from the starting station to the destination station
+     *
      * @param startNode
      * @param endNode
      * @return
@@ -109,7 +113,7 @@ public class Graph implements GraphADT {
     }
 
     /**
-     *
+     * Prints the specific path
      */
     private void printPath() {
         int pos = Integer.MAX_VALUE;
@@ -154,6 +158,8 @@ public class Graph implements GraphADT {
     }
 
     /**
+     * Returns the label of an edge between 2 nodes
+     *
      * @param i
      * @param j
      * @return

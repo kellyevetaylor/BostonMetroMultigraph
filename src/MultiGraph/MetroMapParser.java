@@ -113,6 +113,9 @@ public class MetroMapParser {
 
     /**
      * Parses the file and generates a graph from it
+     * @return
+     * @throws IOException
+     * @throws BadFileException
      */
     public  BostonMetroSystem generateGraphFromFile()
             throws IOException, BadFileException

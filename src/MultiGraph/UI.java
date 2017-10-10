@@ -13,8 +13,12 @@ public class UI {
     public UI() {
 
     }
+
     /**
      * Asks, recieves and checks input from the user
+     *
+     * @param bms
+     * @param firstOrSecond
      */
     void selectStationName(BostonMetroSystem bms, boolean firstOrSecond) {
 
@@ -109,6 +113,9 @@ public class UI {
 
     /**
      * Checks if station given exists within the BostonMetroSystem
+     * @param bms
+     * @param stationName
+     * @return
      */
     private boolean doesStationExist(BostonMetroSystem bms, String stationName) {
         List<INode> nodes = bms.getStations();
@@ -129,10 +136,18 @@ public class UI {
         System.exit(0);
     }
 
+    /**
+     * Returns the first station's ID
+     * @return
+     */
     int getFirstStationId() {
         return firstStationId;
     }
 
+    /**
+     * Returns the second station's ID
+     * @return
+     */
     int getSecondStationId() {
         return secondStationId;
     }

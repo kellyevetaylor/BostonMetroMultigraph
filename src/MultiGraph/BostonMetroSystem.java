@@ -40,7 +40,7 @@ public class BostonMetroSystem {
     }
 
     /**
-     *
+     * Returns a list of stations
      * @return
      */
     List<INode> getStations() {
