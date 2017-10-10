@@ -44,11 +44,12 @@ public class Graph implements GraphADT {
     }
 
     public void search(int startNode, int endNode) {
-        this.bfs(startNode, endNode);
+        List path = bfs(startNode, endNode);
+        processPath(startNode, endNode, path);
         printPath();
     }
 
-    private void bfs(int startNode, int endNode) {
+    private List bfs(int startNode, int endNode) {
         List<Integer> path = new ArrayList<>();
         List<Integer> visited = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
@@ -67,8 +68,7 @@ public class Graph implements GraphADT {
 
                 visited.add(n);
                 if (child == endNode) {
-                    processPath(startNode, endNode, path);
-
+                    return path;
                 } else {
                     if (!visited.contains(child)) {
                         queue.add(child);
@@ -76,6 +76,7 @@ public class Graph implements GraphADT {
                 }
             }
         }
+        return null;
     }
 
 
