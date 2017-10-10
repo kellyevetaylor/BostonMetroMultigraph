@@ -7,6 +7,9 @@ public class MainApp {
 
     static BostonMetroSystem bms;
 
+    /**
+     * Starts the program. Throws IOException if input file is incorrect
+     */
     public static void main(String[] a) throws IOException {
 
         MetroMapParser mmp = new MetroMapParser("bostonmetro.txt");
