@@ -36,17 +36,4 @@ public class BostonMetroSystemTest {
         assertEquals("Graph should have 2 stations added", stations.size(), 2);
         assertEquals("Station name didn't match", stations.get(0).getName(), "Test station 1");
     }
-
-    @Test
-    public void addLine() throws Exception {
-    }
-
-    @Test
-    public void search() throws Exception {
-    }
-
-    @Test
-    public void getStations() throws Exception {
-    }
-
 }

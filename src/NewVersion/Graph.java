@@ -43,8 +43,12 @@ public class Graph implements GraphADT {
         return nodes;
     }
 
-
     public void search(int startNode, int endNode) {
+        this.bfs(startNode, endNode);
+        printPath();
+    }
+
+    private void bfs(int startNode, int endNode) {
         List<Integer> path = new ArrayList<>();
         List<Integer> visited = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
@@ -72,7 +76,6 @@ public class Graph implements GraphADT {
                 }
             }
         }
-        printPath();
     }
 
 

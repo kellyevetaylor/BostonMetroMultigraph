@@ -36,7 +36,7 @@ public class UI {
                 quit();
             }
 
-            System.out.println("");
+            System.out.println();
 
             //NEW STUFF-----------------------------------------
             if (userInput.equalsIgnoreCase("st.paulstreet")) {
@@ -121,11 +121,11 @@ public class UI {
         System.exit(0);
     }
 
-    public int getFirstStationId() {
+    int getFirstStationId() {
         return firstStationId;
     }
 
-    public int getSecondStationId() {
+    int getSecondStationId() {
         return secondStationId;
     }
 }
