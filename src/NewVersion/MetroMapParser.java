@@ -55,21 +55,25 @@ public class MetroMapParser {
         private int node2;
         private String label;
 
-        public NewLine(int node1, int node2, String label){
+        NewLine(int node1, int node2, String label){
             this.node1 = node1;
             this.node2 = node2;
             this.label = label;
         }
 
-        public int getNode1(){
+        NewLine(String node1, String node2, String label) {
+            this(Integer.parseInt(node1), Integer.parseInt(node2), label);
+        }
+
+        int getNode1(){
             return node1;
         }
 
-        public int getNode2() {
+        int getNode2() {
             return node2;
         }
 
-        public String getLabel(){
+        String getLabel(){
             return label;
         }
     }
@@ -183,9 +187,9 @@ public class MetroMapParser {
                 inboundID = st.nextToken();
 
                 if(Integer.parseInt(outboundID) !=0)
-                    lines.add(new NewLine(Integer.parseInt(stationID),Integer.parseInt(outboundID),lineName));
+                    lines.add(new NewLine(stationID,outboundID,lineName));
                 if(Integer.parseInt(inboundID) !=0)
-                    lines.add(new NewLine(Integer.parseInt(stationID),Integer.parseInt(inboundID),lineName));
+                    lines.add(new NewLine(stationID,inboundID,lineName));
             }
 
 
