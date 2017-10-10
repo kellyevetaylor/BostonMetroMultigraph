@@ -121,4 +121,11 @@ public class UI {
         System.exit(0);
     }
 
+    public int getFirstStationId() {
+        return firstStationId;
+    }
+
+    public int getSecondStationId() {
+        return secondStationId;
+    }
 }
