@@ -14,22 +14,14 @@ public class UI {
 
     }
 
-    public int getFirstStationId() {
-        return firstStationId;
-    }
-
-    public int getSecondStationId() {
-        return secondStationId;
-    }
-
-    public void selectStationName(BostonMetroSystem bms, boolean firstOrSecond) {
+    void selectStationName(BostonMetroSystem bms, boolean firstOrSecond) {
 
         String userInput;
         String paul;
         Scanner sc = new Scanner(System.in);
         List<INode> nodes = bms.getStations();
 
-        while (1 == 1) {
+        while (true) {
             if (firstOrSecond) {
                 System.out.println("Please type the name of your starting station or 'quit' to exit the program.");
 
@@ -48,7 +40,7 @@ public class UI {
 
             //NEW STUFF-----------------------------------------
             if (userInput.equalsIgnoreCase("st.paulstreet")) {
-                while (1 == 1) {
+                while (true) {
                     System.out.println("If you mean the station on Green B, input B.");
                     System.out.println("If you mean the station on Green C, input C.");
 
@@ -98,12 +90,12 @@ public class UI {
 
 
         }
-        for (int i = 0; i < nodes.size(); i++) {
-            if (nodes.get(i).getName().equalsIgnoreCase(firstStationName) && !nodes.get(i).getName().equalsIgnoreCase("st.paulstreet")) {
-                firstStationId = nodes.get(i).getId();
+        for (INode node : nodes) {
+            if (node.getName().equalsIgnoreCase(firstStationName) && !node.getName().equalsIgnoreCase("st.paulstreet")) {
+                firstStationId = node.getId();
             }
-            if (nodes.get(i).getName().equalsIgnoreCase(secondStationName) && !nodes.get(i).getName().equalsIgnoreCase("st.paulstreet")) {
-                secondStationId = nodes.get(i).getId();
+            if (node.getName().equalsIgnoreCase(secondStationName) && !node.getName().equalsIgnoreCase("st.paulstreet")) {
+                secondStationId = node.getId();
             }
 
         }
@@ -112,8 +104,8 @@ public class UI {
 
     private boolean doesStationExist(BostonMetroSystem bms, String stationName) {
         List<INode> nodes = bms.getStations();
-        for (int i = 0; i < nodes.size(); i++) {
-            if (nodes.get(i).getName().equalsIgnoreCase(stationName)) {
+        for (INode node : nodes) {
+            if (node.getName().equalsIgnoreCase(stationName)) {
                 return true;
             }
         }
