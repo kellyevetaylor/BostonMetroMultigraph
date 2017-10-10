@@ -6,7 +6,10 @@ public interface IEdge {
 
     INode getSecondNode();
 
-    String getLabel();
+    int getFirstId();
 
+    int getSecondId();
+
+    String getLabel();
 
 }

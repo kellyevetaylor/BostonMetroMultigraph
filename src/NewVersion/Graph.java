@@ -28,13 +28,11 @@ public class Graph implements GraphADT {
         List<Integer> successors = new ArrayList<>();
 
         for (IEdge edge : edges) {
-            if (edge.getFirstNode().getId() == n) {
-                successors.add(edge.getSecondNode().getId());
-            }
+            int firstId = edge.getFirstId();
+            int secondId = edge.getSecondId();
 
-            if (edge.getSecondNode().getId() == n) {
-                successors.add(edge.getFirstNode().getId());
-            }
+            if (firstId == n) successors.add(secondId);
+            if (secondId == n) successors.add(firstId);
         }
         return successors;
     }
@@ -122,8 +120,10 @@ public class Graph implements GraphADT {
 
     private String getLabel(int i, int j) {
         for (IEdge edge : edges) {
-            if ((edge.getFirstNode().getId() == i && edge.getSecondNode().getId() == j)
-                    || (edge.getFirstNode().getId() == j && edge.getSecondNode().getId() == i))
+            int firstId = edge.getFirstId();
+            int secondId = edge.getSecondId();
+
+            if ((firstId == i && secondId == j) || (firstId == j && secondId == i))
                 return edge.getLabel();
         }
         return null;

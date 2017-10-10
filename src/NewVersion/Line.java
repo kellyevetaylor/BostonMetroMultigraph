@@ -22,6 +22,16 @@ public class Line implements IEdge {
     }
 
     @Override
+    public int getFirstId() {
+        return node1.getId();
+    }
+
+    @Override
+    public int getSecondId() {
+        return node2.getId();
+    }
+
+    @Override
     public String getLabel() {
         return label;
     }
