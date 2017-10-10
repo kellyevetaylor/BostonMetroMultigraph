@@ -13,7 +13,9 @@ public class UI {
     public UI() {
 
     }
-
+    /**
+     * Asks, recieves and checks input from the user
+     */
     void selectStationName(BostonMetroSystem bms, boolean firstOrSecond) {
 
         String userInput;
@@ -105,6 +107,9 @@ public class UI {
 
     }
 
+    /**
+     * Checks if station given exists within the BostonMetroSystem
+     */
     private boolean doesStationExist(BostonMetroSystem bms, String stationName) {
         List<INode> nodes = bms.getStations();
         for (INode node : nodes) {
@@ -116,6 +121,9 @@ public class UI {
         return false;
     }
 
+    /**
+     * Exits program
+     */
     private void quit() {
         System.out.println("Thank you for using the Boston Metro System. Have a nice day!");
         System.exit(0);
