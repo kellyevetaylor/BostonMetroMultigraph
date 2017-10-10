@@ -3,7 +3,7 @@ package NewVersion;
 import java.util.List;
 
 public class BostonMetroSystem {
-    public GraphADT g;
+    private GraphADT g;
 
     public BostonMetroSystem() {
         g = new Graph();
