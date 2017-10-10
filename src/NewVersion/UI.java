@@ -91,11 +91,14 @@ public class UI {
 
         }
         for (INode node : nodes) {
-            if (node.getName().equalsIgnoreCase(firstStationName) && !node.getName().equalsIgnoreCase("st.paulstreet")) {
-                firstStationId = node.getId();
+            String nodeName = node.getName();
+            int nodeId = node.getId();
+
+            if (nodeName.equalsIgnoreCase(firstStationName) && !nodeName.equalsIgnoreCase("st.paulstreet")) {
+                firstStationId = nodeId;
             }
-            if (node.getName().equalsIgnoreCase(secondStationName) && !node.getName().equalsIgnoreCase("st.paulstreet")) {
-                secondStationId = node.getId();
+            if (nodeName.equalsIgnoreCase(secondStationName) && !nodeName.equalsIgnoreCase("st.paulstreet")) {
+                secondStationId = nodeId;
             }
 
         }
