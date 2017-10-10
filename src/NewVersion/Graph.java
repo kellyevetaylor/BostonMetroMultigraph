@@ -5,7 +5,7 @@ import java.util.*;
 public class Graph implements GraphADT {
     private List<INode> nodes;
     private List<IEdge> edges;
-    List<Integer> shortest = new ArrayList();
+    private List<Integer> shortest = new ArrayList();
 
 
     public Graph() {
@@ -24,7 +24,7 @@ public class Graph implements GraphADT {
     }
 
 
-    public List<Integer> getSuccessors(int n) {
+    List<Integer> getSuccessors(int n) {
         List<Integer> successors = new ArrayList<>();
 
         for (IEdge edge : edges) {

@@ -21,9 +21,7 @@ public class MainApp {
 
                bms.search(ui.getFirstStationId(), ui.getSecondStationId());
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (BadFileException e) {
+        } catch (IOException | BadFileException e) {
             e.printStackTrace();
         }
     }

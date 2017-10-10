@@ -205,11 +205,11 @@ public class MetroMapParser {
         for(NewLine newLine : lines){
             Station station1 = null;
             Station station2 = null;
-            for(int i=0;i<stations.size();i++){
-                if(newLine.getNode1() == stations.get(i).getId())
-                    station1 = stations.get(i);
-                if(newLine.getNode2() == stations.get(i).getId())
-                    station2 = stations.get(i);
+            for (Station station : stations) {
+                if (newLine.getNode1() == station.getId())
+                    station1 = station;
+                if (newLine.getNode2() == station.getId())
+                    station2 = station;
             }
             bms.addLine(new Line(station1, station2, newLine.getLabel()));
         }
