@@ -1,4 +1,4 @@
-package NewVersion;
+package MultiGraph;
 
 public class Line implements IEdge {
     private INode node1;

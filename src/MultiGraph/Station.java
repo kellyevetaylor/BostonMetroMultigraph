@@ -1,4 +1,4 @@
-package NewVersion;
+package MultiGraph;
 
 public class Station implements INode {
     private int ID;

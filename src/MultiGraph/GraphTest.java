@@ -1,4 +1,4 @@
-package NewVersion;
+package MultiGraph;
 
 import org.junit.Before;
 import org.junit.Test;

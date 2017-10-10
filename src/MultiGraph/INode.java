@@ -1,4 +1,4 @@
-package NewVersion;
+package MultiGraph;
 
 public interface INode {
 

@@ -1,4 +1,4 @@
-package NewVersion;
+package MultiGraph;
 
 import java.util.*;
 
@@ -7,17 +7,25 @@ public class Graph implements GraphADT {
     private List<IEdge> edges;
     private List<Integer> shortest = new ArrayList();
 
-
+    /**
+     * Initialises 2 arraylists for nodes and edges
+     */
     public Graph() {
         nodes = new ArrayList<>();
         edges = new ArrayList<>();
     }
 
+    /**
+     * Adds the given node into an arraylist of nodes
+     */
     @Override
     public void addNode(INode node) {
         nodes.add(node);
     }
 
+    /**
+     * Adds the given edge into an array list of edges
+     */
     @Override
     public void addEdge(IEdge edge) {
         edges.add(edge);
@@ -38,17 +46,26 @@ public class Graph implements GraphADT {
     }
 
 
+    /**
+     * Returns the arraylist of nodes
+     */
     @Override
     public List<INode> getNodes() {
         return nodes;
     }
 
+    /**
+     * Searches the map(breadth first) for the shortest path from the starting station to the destination station
+     */
     public void search(int startNode, int endNode) {
         List path = bfs(startNode, endNode);
         processPath(startNode, endNode, path);
         printPath();
     }
 
+    /**
+     *
+     */
     private List bfs(int startNode, int endNode) {
         List<Integer> path = new ArrayList<>();
         List<Integer> visited = new ArrayList<>();
@@ -80,6 +97,9 @@ public class Graph implements GraphADT {
     }
 
 
+    /**
+     *
+     */
     private void printPath() {
         int pos = Integer.MAX_VALUE;
         for (int i = 1; i < shortest.size(); i++)
@@ -122,6 +142,9 @@ public class Graph implements GraphADT {
 
     }
 
+    /**
+     *
+     */
     private String getLabel(int i, int j) {
         for (IEdge edge : edges) {
             int firstId = edge.getFirstId();
@@ -134,6 +157,9 @@ public class Graph implements GraphADT {
     }
 
 
+    /**
+     * Helper method for finding the shortest path
+     */
     private List<Integer> processPath(int src, int destination, List<Integer> path) {
         // Finds out where the destination node directly comes from.
         int index = path.indexOf(destination);

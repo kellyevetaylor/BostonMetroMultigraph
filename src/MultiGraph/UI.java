@@ -1,4 +1,4 @@
-package NewVersion;
+package MultiGraph;
 
 import java.util.List;
 import java.util.Scanner;
